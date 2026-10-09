@@ -1,0 +1,435 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-eco: var(--eco);
+  --color-eco-foreground: var(--eco-foreground);
+  --color-frost: var(--frost);
+  --color-glacier-deep: var(--glacier-deep);
+  --color-glacier-mist: var(--glacier-mist);
+  --color-snowflake: var(--snowflake);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.17 0.038 258);
+  --foreground: oklch(0.96 0.008 220);
+  --card: oklch(0.225 0.045 256);
+  --card-foreground: oklch(0.96 0.008 220);
+  --popover: oklch(0.225 0.045 256);
+  --popover-foreground: oklch(0.96 0.008 220);
+  --primary: oklch(0.78 0.11 210);
+  --primary-foreground: oklch(0.16 0.04 258);
+  --secondary: oklch(0.28 0.05 255);
+  --secondary-foreground: oklch(0.94 0.012 220);
+  --muted: oklch(0.26 0.045 255);
+  --muted-foreground: oklch(0.75 0.03 230);
+  --accent: oklch(0.82 0.09 200);
+  --accent-foreground: oklch(0.17 0.04 258);
+  --eco: oklch(0.76 0.14 158);
+  --eco-foreground: oklch(0.16 0.04 258);
+  --frost: oklch(0.27 0.05 250);
+  --glacier-deep: oklch(0.21 0.05 252);
+  --glacier-mist: oklch(0.24 0.05 250);
+  --snowflake: oklch(0.92 0.04 210);
+  --destructive: oklch(0.68 0.2 25);
+  --destructive-foreground: oklch(0.98 0.005 230);
+  --border: oklch(0.34 0.045 252);
+  --input: oklch(0.34 0.045 252);
+  --ring: oklch(0.82 0.09 200);
+  --chart-1: oklch(0.78 0.11 210);
+  --chart-2: oklch(0.82 0.09 200);
+  --chart-3: oklch(0.76 0.14 158);
+  --chart-4: oklch(0.75 0.03 230);
+  --chart-5: oklch(0.6 0.07 220);
+  --sidebar: oklch(0.2 0.042 256);
+  --sidebar-foreground: oklch(0.96 0.008 220);
+  --sidebar-primary: oklch(0.78 0.11 210);
+  --sidebar-primary-foreground: oklch(0.16 0.04 258);
+  --sidebar-accent: oklch(0.27 0.05 250);
+  --sidebar-accent-foreground: oklch(0.96 0.008 220);
+  --sidebar-border: oklch(0.34 0.045 252);
+  --sidebar-ring: oklch(0.82 0.09 200);
+}
+
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@utility site-shell {
+  background-image:
+    radial-gradient(
+      ellipse 75% 45% at 12% 12%,
+      color-mix(in oklab, var(--color-primary) 18%, transparent) 0%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 62% 48% at 88% 34%,
+      color-mix(in oklab, var(--color-accent) 14%, transparent) 0%,
+      transparent 74%
+    ),
+    radial-gradient(
+      ellipse 70% 42% at 44% 86%,
+      color-mix(in oklab, var(--color-glacier-deep) 72%, transparent) 0%,
+      transparent 76%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--color-glacier-mist) 92%, var(--color-background)) 0%,
+      var(--color-background) 42%,
+      color-mix(in oklab, var(--color-glacier-deep) 54%, var(--color-background)) 100%
+    );
+  background-attachment: fixed;
+}
+
+@utility atmosphere-winter {
+  background-image:
+    radial-gradient(ellipse 75% 45% at 12% 12%, color-mix(in oklab, var(--color-primary) 18%, transparent), transparent 72%),
+    radial-gradient(ellipse 62% 48% at 88% 34%, color-mix(in oklab, var(--color-accent) 14%, transparent), transparent 74%),
+    linear-gradient(135deg, var(--color-glacier-mist), var(--color-background) 48%, var(--color-glacier-deep));
+}
+
+@utility frost-wind {
+  --vortex-up: -120px;
+  --vortex-down: 112px;
+  --vortex-mid-up: -64px;
+  --vortex-mid-down: 58px;
+  color: var(--color-snowflake);
+  opacity: 0.55;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+@utility frost-wind-light {
+  --vortex-up: -42px;
+  --vortex-down: 40px;
+  --vortex-mid-up: -22px;
+  --vortex-mid-down: 20px;
+
+  .frost-particle {
+    animation-name: frost-drift-east-light;
+  }
+}
+
+@utility frost-wind-strong {
+  .frost-particle {
+    animation-name: frost-drift-east;
+  }
+}
+
+@utility frost-particle {
+  position: absolute;
+  left: -3rem;
+  display: block;
+  line-height: 1;
+  will-change: transform;
+  animation-name: frost-drift-east;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@utility frost-twinkle {
+  display: block;
+  will-change: opacity;
+  color: color-mix(in oklab, var(--color-snowflake) 86%, var(--color-primary));
+  filter:
+    drop-shadow(0 0 4px color-mix(in oklab, var(--color-snowflake) 72%, transparent))
+    drop-shadow(0 0 10px color-mix(in oklab, var(--color-primary) 42%, transparent));
+  animation: frost-twinkle 2.8s ease-in-out infinite alternate;
+}
+
+@utility frost-twinkle-1 { animation-delay: -0.4s; }
+@utility frost-twinkle-2 { animation-delay: -1.1s; animation-duration: 3.4s; }
+@utility frost-twinkle-3 { animation-delay: -1.8s; animation-duration: 2.4s; }
+@utility frost-twinkle-4 { animation-delay: -2.3s; animation-duration: 3.8s; }
+
+@utility bg-gradient-frost {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
+}
+
+@utility bg-gradient-glacier {
+  background-image:
+    radial-gradient(
+      circle at 15% 10%,
+      color-mix(in oklab, var(--color-accent) 22%, transparent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 85% 0%,
+      color-mix(in oklab, var(--color-primary) 18%, transparent) 0%,
+      transparent 50%
+    ),
+    linear-gradient(180deg, var(--color-frost) 0%, var(--color-background) 70%);
+}
+
+@utility shadow-frost {
+  box-shadow:
+    0 18px 40px -22px oklch(0.1 0.04 258 / 0.85),
+    0 0 24px -8px color-mix(in oklab, var(--color-primary) 30%, transparent);
+}
+
+@utility card-frost {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklab, var(--color-accent) 55%, transparent);
+    box-shadow:
+      0 22px 45px -26px oklch(0.08 0.04 258 / 0.9),
+      0 0 28px -10px color-mix(in oklab, var(--color-primary) 35%, transparent);
+  }
+}
+
+@keyframes frost-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sublimate {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: translateY(-10px) scale(1.06);
+  }
+}
+
+@keyframes frost-drift-east {
+  0% {
+    transform: translate3d(-5vw, 0, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate3d(7vw, var(--vortex-mid-up), 0) rotate(120deg);
+  }
+  20% {
+    transform: translate3d(19vw, var(--vortex-up), 0) rotate(240deg);
+  }
+  30% {
+    transform: translate3d(31vw, var(--vortex-mid-down), 0) rotate(360deg);
+  }
+  40% {
+    transform: translate3d(43vw, var(--vortex-down), 0) rotate(480deg);
+  }
+  50% {
+    transform: translate3d(55vw, 0, 0) rotate(600deg);
+  }
+  60% {
+    transform: translate3d(67vw, var(--vortex-mid-up), 0) rotate(720deg);
+  }
+  70% {
+    transform: translate3d(79vw, var(--vortex-up), 0) rotate(840deg);
+  }
+  80% {
+    transform: translate3d(91vw, var(--vortex-mid-down), 0) rotate(960deg);
+  }
+  90% {
+    transform: translate3d(103vw, var(--vortex-down), 0) rotate(1080deg);
+  }
+  100% {
+    transform: translate3d(115vw, 0, 0) rotate(1200deg);
+  }
+}
+
+@keyframes frost-drift-east-light {
+  0% {
+    transform: translate3d(-5vw, 0, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate3d(7vw, var(--vortex-mid-up), 0) rotate(36deg);
+  }
+  20% {
+    transform: translate3d(19vw, var(--vortex-up), 0) rotate(72deg);
+  }
+  30% {
+    transform: translate3d(31vw, var(--vortex-mid-down), 0) rotate(108deg);
+  }
+  40% {
+    transform: translate3d(43vw, var(--vortex-down), 0) rotate(144deg);
+  }
+  50% {
+    transform: translate3d(55vw, 0, 0) rotate(180deg);
+  }
+  60% {
+    transform: translate3d(67vw, var(--vortex-mid-up), 0) rotate(216deg);
+  }
+  70% {
+    transform: translate3d(79vw, var(--vortex-up), 0) rotate(252deg);
+  }
+  80% {
+    transform: translate3d(91vw, var(--vortex-mid-down), 0) rotate(288deg);
+  }
+  90% {
+    transform: translate3d(103vw, var(--vortex-down), 0) rotate(324deg);
+  }
+  100% {
+    transform: translate3d(115vw, 0, 0) rotate(360deg);
+  }
+}
+
+@keyframes frost-twinkle {
+  0%,
+  100% {
+    opacity: 0.48;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .frost-wind-strong {
+    --vortex-up: -76px;
+    --vortex-down: 72px;
+    --vortex-mid-up: -40px;
+    --vortex-mid-down: 36px;
+  }
+
+  .frost-wind-light {
+    --vortex-up: -28px;
+    --vortex-down: 26px;
+    --vortex-mid-up: -14px;
+    --vortex-mid-down: 12px;
+  }
+}
+
+@utility animate-frost-rise {
+  animation: frost-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@utility animate-sublimate {
+  animation: sublimate 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frost-particle,
+  .frost-twinkle,
+  .animate-frost-rise,
+  .animate-sublimate {
+    animation: none;
+  }
+
+  .frost-particle {
+    display: none;
+  }
+}

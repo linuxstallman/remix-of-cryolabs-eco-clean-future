@@ -1,0 +1,9 @@
+# Déploiement Cryolabs sur Netlify (TanStack Start)
+# La cible Netlify est détectée automatiquement à la compilation : rien d'autre à régler.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
